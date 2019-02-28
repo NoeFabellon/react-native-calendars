@@ -1,7 +1,7 @@
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 
 export const foregroundColor = '#ffffff';
-export const backgroundColor = '#f4f4f4';
+export const backgroundColor = '#f1f1f1';
 export const separatorColor = '#e8e9ec';
 
 export const processedColor = '#a7e0a3';
@@ -23,12 +23,12 @@ export const textDayFontSize = 16;
 export const textMonthFontSize = 16;
 export const textDayHeaderFontSize = 13;
 
-export const calendarBackground = foregroundColor;
+export const calendarBackground = '#fafafa';
 export const textSectionTitleColor = '#b6c1cd';
-export const selectedDayBackgroundColor = textLinkColor;
+export const selectedDayBackgroundColor = '#686f87';
 export const selectedDayTextColor = foregroundColor;
 export const todayBackgroundColor = undefined;
-export const todayTextColor = textLinkColor;
+export const todayTextColor = undefined;
 export const dayTextColor = textDefaultColor;
 export const textDisabledColor = '#d9e1e8';
 export const dotColor = textLinkColor;
@@ -39,3 +39,4 @@ export const agendaDayTextColor = '#7a92a5';
 export const agendaDayNumColor = '#7a92a5';
 export const agendaTodayColor = textLinkColor;
 export const agendaKnobColor = Platform.OS === 'ios' ? '#f2F4f5' : '#4ac4f7';
+
