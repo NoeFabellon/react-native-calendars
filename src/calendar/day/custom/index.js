@@ -1,12 +1,9 @@
-import React, {Component} from 'react';
-import {
-  TouchableOpacity,
-  Text,
-} from 'react-native';
+import React, { Component } from 'react';
+import { TouchableOpacity, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import styleConstructor from './style';
-import {shouldUpdate} from '../../../component-updater';
+import { shouldUpdate } from '../../../component-updater';
 
 class Day extends Component {
   static propTypes = {
@@ -35,7 +32,13 @@ class Day extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return shouldUpdate(this.props, nextProps, ['state', 'children', 'marking', 'onPress', 'onLongPress']);
+    return shouldUpdate(this.props, nextProps, [
+      'state',
+      'children',
+      'marking',
+      'onPress',
+      'onLongPress'
+    ]);
   }
 
   render() {
@@ -48,7 +51,10 @@ class Day extends Component {
         marking: true
       };
     }
-    const isDisabled = typeof marking.disabled !== 'undefined' ? marking.disabled : this.props.state === 'disabled';
+    const isDisabled =
+      typeof marking.disabled !== 'undefined'
+        ? marking.disabled
+        : this.props.state === 'disabled';
 
     if (marking.selected) {
       containerStyle.push(this.style.selected);
@@ -71,7 +77,7 @@ class Day extends Component {
         textStyle.push(styles.text);
       }
     }
-
+    console.log('asdasd', containerStyle);
     return (
       <TouchableOpacity
         style={containerStyle}
@@ -80,7 +86,27 @@ class Day extends Component {
         activeOpacity={marking.activeOpacity}
         disabled={marking.disableTouchEvent}
       >
-        <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
+        <Text allowFontScaling={false} style={textStyle}>
+          {String(this.props.children)}
+        </Text>
+        <View
+          style={{
+            opacity:
+              (containerStyle[1] != undefined &&
+                containerStyle[1].backgroundColor == 'transparent') ||
+              (containerStyle[2] != undefined &&
+                containerStyle[2].backgroundColor == 'transparent')
+                ? 1
+                : 0,
+            position: 'absolute',
+            transform: [{ rotate: '-45deg' }],
+            top: 15,
+            width: 25,
+            height: 1,
+            borderBottomColor: '#f00',
+            borderBottomWidth: 2
+          }}
+        />
       </TouchableOpacity>
     );
   }

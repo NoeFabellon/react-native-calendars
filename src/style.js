@@ -28,7 +28,7 @@ export const textSectionTitleColor = '#b6c1cd';
 export const selectedDayBackgroundColor = '#686f87';
 export const selectedDayTextColor = foregroundColor;
 export const todayBackgroundColor = undefined;
-export const todayTextColor = undefined;
+export const todayTextColor = '#43515c';
 export const dayTextColor = textDefaultColor;
 export const textDisabledColor = '#d9e1e8';
 export const dotColor = textLinkColor;
@@ -39,4 +39,3 @@ export const agendaDayTextColor = '#7a92a5';
 export const agendaDayNumColor = '#7a92a5';
 export const agendaTodayColor = textLinkColor;
 export const agendaKnobColor = Platform.OS === 'ios' ? '#f2F4f5' : '#4ac4f7';
-
