@@ -77,6 +77,7 @@ class Day extends Component {
         textStyle.push(styles.text);
       }
     }
+    console.log(this.props.marking, 'marking');
     return (
       <View
         style={{

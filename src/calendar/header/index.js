@@ -132,7 +132,7 @@ class CalendarHeader extends Component {
       indicator = <ActivityIndicator />;
     }
     return (
-      <View style={{ marginTop: -10 }}>
+      <View>
         {!this.props.hideDayNames && (
           <View
             style={[
