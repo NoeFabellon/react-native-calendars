@@ -91,7 +91,9 @@ class Day extends Component {
           onPress={this.onDayPress}
           onLongPress={this.onDayLongPress}
           activeOpacity={marking.activeOpacity}
-          disabled={marking.disableTouchEvent}
+          disabled={
+            containerStyle[1] != undefined ? true : marking.disableTouchEvent
+          }
         >
           <Text allowFontScaling={false} style={[textStyle, { fontSize: 15 }]}>
             {String(this.props.children)}
@@ -134,7 +136,9 @@ class Day extends Component {
             borderRadius: 10
           }}
         >
-          <Text style={{ color: 'white', fontSize: 8 }}>1</Text>
+          <Text style={{ color: 'white', fontSize: 8 }}>
+            {this.props.marking.count > 9 ? '9+' : this.props.marking.count}
+          </Text>
         </View>
       </View>
     );
