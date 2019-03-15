@@ -191,7 +191,13 @@ class Calendar extends Component {
     const DayComp = this.getDayComponent();
     const date = day.getDate();
     return (
-      <View style={{ flex: 1, alignItems: 'center' }} key={id}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center'
+        }}
+        key={id}
+      >
         <DayComp
           state={state}
           theme={this.props.theme}

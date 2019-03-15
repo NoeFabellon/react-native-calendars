@@ -77,37 +77,66 @@ class Day extends Component {
         textStyle.push(styles.text);
       }
     }
-    console.log('asdasd', containerStyle);
     return (
-      <TouchableOpacity
-        style={containerStyle}
-        onPress={this.onDayPress}
-        onLongPress={this.onDayLongPress}
-        activeOpacity={marking.activeOpacity}
-        disabled={marking.disableTouchEvent}
+      <View
+        style={{
+          paddingBottom: 7,
+          paddingTop: 7,
+          paddingLeft: 7,
+          paddingRight: 7
+        }}
       >
-        <Text allowFontScaling={false} style={textStyle}>
-          {String(this.props.children)}
-        </Text>
+        <TouchableOpacity
+          style={[containerStyle]}
+          onPress={this.onDayPress}
+          onLongPress={this.onDayLongPress}
+          activeOpacity={marking.activeOpacity}
+          disabled={marking.disableTouchEvent}
+        >
+          <Text allowFontScaling={false} style={[textStyle, { fontSize: 15 }]}>
+            {String(this.props.children)}
+          </Text>
+          <View
+            style={{
+              opacity:
+                (containerStyle[1] != undefined &&
+                  containerStyle[1].backgroundColor == 'transparent') ||
+                (containerStyle[2] != undefined &&
+                  containerStyle[2].backgroundColor == 'transparent')
+                  ? 1
+                  : 0,
+              position: 'absolute',
+              transform: [{ rotate: '-45deg' }],
+              top: 15,
+              width: 25,
+              height: 1,
+              borderBottomColor: '#f00',
+              borderBottomWidth: 2
+            }}
+          />
+        </TouchableOpacity>
         <View
           style={{
             opacity:
-              (containerStyle[1] != undefined &&
-                containerStyle[1].backgroundColor == 'transparent') ||
-              (containerStyle[2] != undefined &&
-                containerStyle[2].backgroundColor == 'transparent')
+              containerStyle[1] != undefined &&
+              containerStyle[1].backgroundColor == '#1b2e50'
                 ? 1
                 : 0,
             position: 'absolute',
-            transform: [{ rotate: '-45deg' }],
-            top: 15,
-            width: 25,
-            height: 1,
-            borderBottomColor: '#f00',
-            borderBottomWidth: 2
+            left: 30,
+            bottom: 30,
+            zIndex: 9999,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#f00',
+            width: 20,
+            height: 20,
+            borderRadius: 10
           }}
-        />
-      </TouchableOpacity>
+        >
+          <Text style={{ color: 'white', fontSize: 8 }}>1</Text>
+        </View>
+      </View>
     );
   }
 }
