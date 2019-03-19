@@ -77,7 +77,6 @@ class Day extends Component {
         textStyle.push(styles.text);
       }
     }
-    console.log(this.props.marking, 'marking');
     return (
       <View
         style={{
@@ -93,7 +92,9 @@ class Day extends Component {
           onLongPress={this.onDayLongPress}
           activeOpacity={marking.activeOpacity}
           disabled={
-            containerStyle[1] != undefined ? true : marking.disableTouchEvent
+            containerStyle[1] != undefined && containerStyle[2] != undefined
+              ? true
+              : marking.disableTouchEvent
           }
         >
           <Text allowFontScaling={false} style={[textStyle, { fontSize: 15 }]}>
