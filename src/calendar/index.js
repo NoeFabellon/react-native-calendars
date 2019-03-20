@@ -54,6 +54,7 @@ class Calendar extends Component {
     onDayLongPress: PropTypes.func,
     // Handler which gets executed when visible month changes in calendar. Default = undefined
     onMonthChange: PropTypes.func,
+    onPressAvailable: PropTypes.func,
     onVisibleMonthsChange: PropTypes.func,
     // Replace default arrows with custom ones (direction can be 'left' or 'right')
     renderArrow: PropTypes.func,
@@ -92,6 +93,8 @@ class Calendar extends Component {
     this.addMonth = this.addMonth.bind(this);
     this.pressDay = this.pressDay.bind(this);
     this.longPressDay = this.longPressDay.bind(this);
+    this.onDayPressAvailable = this.onDayPressAvailable.bind(this);
+    this.onDayPressAppointment = this.onDayPressAppointment.bind(this);
     this.shouldComponentUpdate = shouldComponentUpdate;
   }
 
@@ -160,6 +163,14 @@ class Calendar extends Component {
     this._handleDayInteraction(date, this.props.onDayLongPress);
   }
 
+  onDayPressAvailable(time, date) {
+    this.props.onPressAvailable(time, date);
+  }
+
+  onDayPressAppointment(date) {
+    this.props.onPressAppointment(date);
+  }
+
   addMonth(count) {
     this.updateMonth(this.state.currentMonth.clone().addMonths(count, true));
   }
@@ -203,6 +214,8 @@ class Calendar extends Component {
           theme={this.props.theme}
           onPress={this.pressDay}
           onLongPress={this.longPressDay}
+          pressAvailable={this.onDayPressAvailable}
+          pressAppointment={this.onDayPressAppointment}
           date={xdateToData(day)}
           marking={this.getDateMarking(day)}
         >

@@ -240,6 +240,7 @@ class CalendarList extends Component {
   }
 
   render() {
+    console.log('props', this.props);
     return (
       <FlatList
         onLayout={this.onLayout}
