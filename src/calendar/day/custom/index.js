@@ -142,8 +142,9 @@ class Day extends Component {
 							transform: [
 								{ rotate: '-45deg' }
 							],
-							top: 15,
-							width: 25,
+							top: 13,
+							left: 4,
+							width: width * 0.07,
 							height: 1,
 							borderBottomColor: '#f00',
 							borderBottomWidth: 2
@@ -160,8 +161,8 @@ class Day extends Component {
 						justifyContent: 'center',
 						alignItems: 'center',
 						backgroundColor: '#f00',
-						width: 15,
-						height: 15,
+						width: height * 0.025,
+						height: height * 0.025,
 						borderRadius: 10
 					}}
 				>
